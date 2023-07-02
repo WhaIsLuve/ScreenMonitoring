@@ -5,7 +5,7 @@ async function getCpuUsageInPercent() {
             response.json().then(data => {
                 let respInString = JSON.stringify(data);
                 let respInObj = JSON.parse(respInString);
-                cpuUsage.innerText = respInObj["rcpuUsageInPecent"] + " %";
+                cpuUsage.innerText = respInObj["cpuUsageInPecent"] + " %";
             })
         }
         else
