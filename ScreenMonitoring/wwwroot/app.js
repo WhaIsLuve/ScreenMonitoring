@@ -30,18 +30,18 @@ async function getRamUsageInGB() {
 }
 
 
-async function getDiskAvailableInGB() {
-    diskAvailable.innerText = "...";
+async function getDiskUsageInGB() {
+    diskUsage.innerText = "...";
     const response = await fetch("/api/disk").then(response => {
         if (response.ok) {
             response.json().then(data => {
                 let respInString = JSON.stringify(data);
                 let respInObj = JSON.parse(respInString);
-                diskAvailable.innerText = respInObj["diskAvailableInGB"] + " GB";
+                diskUsage.innertext = respInObj["diskUsageInGB"] + " GB";
             })
         }
         else
-            diskAvailable.innerText = "empty";
+            diskUsage.innerText = "empty";
     });
 }
 
@@ -52,8 +52,8 @@ const buttonGetRam = document.getElementById("btnRam");
 const ramUsage = document.querySelector("#usageRAM");
 
 const buttonGetDisk = document.getElementById("btnDisk");
-const diskAvailable = document.getElementById("usageDisk");
+const diskUsage = document.getElementById("usageDisk");
 
 buttonGetCpu.addEventListener('click', getCpuUsageInPercent);
 buttonGetRam.addEventListener('click', getRamUsageInGB);
-buttonGetDisk.addEventListener('click', getDiskAvailableInGB);
+buttonGetDisk.addEventListener('click', getDiskUsageInGB);
