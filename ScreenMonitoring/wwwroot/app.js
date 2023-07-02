@@ -5,7 +5,7 @@ async function getCpuUsageInPercent() {
             response.json().then(data => {
                 let respInString = JSON.stringify(data);
                 let respInObj = JSON.parse(respInString);
-                cpuUsage.innerText = respInObj["cpuUsageInPecent"] + " %";
+                cpuUsage.innerText = respInObj["cpuUsageInPercent"] + " %";
             })
         }
         else
@@ -37,7 +37,7 @@ async function getDiskUsageInGB() {
             response.json().then(data => {
                 let respInString = JSON.stringify(data);
                 let respInObj = JSON.parse(respInString);
-                diskUsage.innertext = respInObj["diskUsageInGB"] + " GB";
+                diskUsage.innerText = respInObj["diskUsageInGB"] + " GB";
             })
         }
         else
